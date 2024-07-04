@@ -1,14 +1,13 @@
-from interfaz import INTERFAZ, INTERFAZ_FINAL
+#from interfaz import INTERFAZ, INTERFAZ_FINAL
+from interfaz import * #traer todas las variablesfrom interfaz import *
 from dado import Dado
 
 print(INTERFAZ)
-
-numero_caras = int(input("De cuantas caras quieres el dado: "))
 try:
-    dado = Dado(numero_caras)
+    numero_caras = int(input("De cuantas caras quieres el dado: "))
 except ValueError:
-    print("El dado no se ha generado correctamente")
-    dado = Dado(2)  # TODO: Este dado es un arreglo temporal, necesitamos una forma de generar dados en bucle
+    numero_caras = -1
+dado = Dado(numero_caras)
 tiradas = []
 terminar = False
 
@@ -18,4 +17,5 @@ while terminar is False:
     if input(INTERFAZ_FINAL).lower() not in ("si", "yes", "y"):
         terminar = True
 
-print(tiradas)
+print(LISTA_TIRADAS, tiradas)
+print(TOTAL_TIRADAS, sum(tiradas))
